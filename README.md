@@ -1,4 +1,4 @@
-This file describes some of the typecheckers internal organization and conventions.
+> This file describes some of the typecheckers internal organization and conventions.
 It is not meant to be complete; rather it is a living document that will be updated
 as needed.
 
@@ -45,13 +45,13 @@ directly to go/types.
 
 
 #
-### Tests
+### [Tests/test.go]
 
 There is a comprehensive suite of tests in the form of annotated source files.
 The tests are in:
 
-- src/internal/types/testdata/ (shared between go/types and types2)
-- ./testdata/local (typechecker local tests, for rare situations only)
+- [src/internal/types/testdata/ ](shared between go/types and types2)
+-[ ./testdata/local ](typechecker local tests, for rare situations only)
 
 Tests are .go files annotated with `/* ERROR "msg" */` or `/* ERRORx "msg" */`
 comments (or the respective line comment form).
@@ -63,14 +63,14 @@ reported by the typechecker;
 for `ERRORx`, the `"msg"` string must be a regular expresspion matching the
 reported error.
 
-For each issue #NNNN that is fixed in the typecheckers, a test
-should be added as src/internal/types/testdata/fixedbugs/issueNNNN.go.
+For each issue #[NNNN that is fixed in the typecheckers, a test
+should be added as ](src/internal/types/testdata/fixedbugs/issueNNNN.go).
 
 
 #
 ### Debugging
 
-The pre-existing template ./testdata/manual.go is convenient for debugging
+[The pre-existing template ](./testdata/manual.go)is convenient for debugging
 on-off situations. Simply populate it with the code of interest and then
 run `go test -run Manual` which will typecheck that file.
 
@@ -124,7 +124,7 @@ Predicates are typically named in form `isX`, such as `isInteger`.
 Typically, there is a Checker method for typechecking a particular expression.
 For instance, there is a method `Checker.unary` that typechecks unary expressions.
 The basic form of such a function f is as follows:
-```
+```bash
 func (check *Checker) f(x *operand, e syntax.Expr, /* addition arguments, if any */)
 ```
 The result of typechecking expression `e` is returned via the operand `x`
