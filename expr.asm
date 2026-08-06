@@ -12,3 +12,4 @@ expr : expr ('*'|'/') expr
 // Lexer Rules (start with uppercase)
 INT     : [0-9]+ ;
 WS      : [ \t\r\n]+ -> skip ;
+
